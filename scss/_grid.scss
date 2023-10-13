@@ -1,0 +1,33 @@
+// for pc & tablet
+$grid-lg: 12;
+$gutter-lg: 24px;
+
+@for $i from 1 through $grid-lg {
+  .col-lg-#{$i} {
+    width: calc(
+      (1200px - ($gutter-lg * ($grid-lg - 1))) /
+        $grid-lg *
+        $i +
+        $gutter-lg *
+        ($i - 1)
+    );
+  }
+}
+
+// for mobile phone
+$grid-sm: 4;
+$gutter-sm: 15px;
+
+@media (max-width: 375px) {
+  @for $i from 1 through $grid-sm {
+    .col-sm-#{$i} {
+      width: calc(
+        (100% - ($gutter-sm * ($grid-sm - 1))) /
+          $grid-sm *
+          $i +
+          $gutter-sm *
+          ($i - 1)
+      );
+    }
+  }
+}
